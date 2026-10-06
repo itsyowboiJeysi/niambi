@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self Assessment - Knowledge, Skills and Challenges in Abstracting</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        babyblue: {
+                            50: '#F4F8FC',
+                            100: '#E8F1F9',
+                            200: '#D0E3F3',
+                            300: '#A7CDE8',
+                            400: '#72AADB',
+                            500: '#4A87C5',
+                            600: '#326AA6',
+                            700: '#265385',
+                            800: '#1D3F66',
+                            900: '#152C48'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F0F5FA;
+            color: #1E293B;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .babyblue-card {
+            background: #FFFFFF;
+            border-radius: 1.25rem;
+            box-shadow: 0 10px 30px -5px rgba(74, 135, 197, 0.12), 0 4px 12px -2px rgba(74, 135, 197, 0.08);
+            border: 1px solid #E2ECF5;
+        }
+        .custom-radio:checked + label {
+            background-color: #E8F1F9;
+            border-color: #4A87C5;
+            color: #1D3F66;
+            font-weight: 600;
+            box-shadow: 0 0 0 1px #4A87C5;
+        }
+        @media print {
+            .no-print { display: none !important; }
+            .print-only { display: block !important; }
+            body { background: white; }
+            .babyblue-card { box-shadow: none; border: 1px solid #CBD5E1; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+    <header class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-babyblue-100 no-print">
+        <div class="max-w-5xl mx-auto px-4 py-3.5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-babyblue-500 to-babyblue-300 flex items-center justify-center text-white font-bold text-lg shadow-md shadow-babyblue-300/30">
+                    <i class="fa-solid fa-book-bookmark"></i>
+                </div>
+                <div>
+                    <h1 class="text-base font-bold text-slate-800 leading-tight">Self Assessment</h1>
+                    <p class="text-xs font-medium text-babyblue-600">Knowledge, Skills and Challenges in Abstracting</p>
+                </div>
+            </div>
+            
+            <div id="studentInfoBadge" class="hidden flex items-center gap-2 bg-babyblue-50 px-3.5 py-1.5 rounded-full border border-babyblue-200 text-xs font-semibold text-babyblue-800">
+                <i class="fa-solid fa-user-graduate text-babyblue-500"></i>
+                <span id="badgeName">Student</span> <span class="text-babyblue-300">|</span> <span id="badgeCourse">Course</span>
+            </div>
+        </div>
+
+        <div id="progressBarContainer" class="w-full bg-babyblue-100 h-2 hidden">
+            <div id="progressBar" class="bg-gradient-to-r from-babyblue-400 to-babyblue-600 h-2 w-0 transition-all duration-500"></div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto w-full px-4 py-8 flex-grow">
+
+        <section id="page-0" class="space-y-8">
+            <div class="babyblue-card p-8 md:p-12 text-center relative overflow-hidden bg-gradient-to-b from-white via-babyblue-50/50 to-babyblue-100/30">
+                <div class="inline-block px-4 py-1.5 bg-babyblue-100 text-babyblue-800 rounded-full text-xs font-bold uppercase tracking-wider mb-4 border border-babyblue-200">
+                    Thesis Evaluation Tool
+                </div>
+                <h1 class="text-2xl md:text-4xl font-extrabold text-slate-800 mb-4 leading-tight">
+                    Self Assessment - Knowledge, Skills and Challenges in Abstracting
+                </h1>
+                <p class="text-slate-600 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+                    Evaluate your proficiency across three core domains: <span class="font-semibold text-babyblue-700">Part 1: Abstracting Knowledge</span>, <span class="font-semibold text-babyblue-700">Part 2: Abstracting Skills</span>, and <span class="font-semibold text-babyblue-700">Part 3: Challenges in Abstracting</span> (10 items each, 30 total).
+                </p>
+                <div class="mt-5 p-3.5 max-w-xl mx-auto bg-babyblue-50 border border-babyblue-200 rounded-xl text-xs text-babyblue-800 flex items-center justify-center gap-2 font-medium">
+                    <i class="fa-solid fa-circle-info text-babyblue-500 text-sm"></i>
+                    <span>Your scores and curated learning resources are generated <strong>only after completing all 3 parts</strong>.</span>
+                </div>
+
+                <!-- Domain Overview Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 text-left">
+                    <div class="p-4 rounded-xl bg-white/80 border border-babyblue-200 shadow-sm">
+                        <div class="text-babyblue-700 font-bold mb-1 flex items-center gap-2 text-sm">
+                            <i class="fa-solid fa-brain text-babyblue-500"></i> Part 1: Knowledge
+                        </div>
+                        <p class="text-xs text-slate-600">10 items on abstract types, ISO/NISO rules, and structural standards.</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-white/80 border border-babyblue-200 shadow-sm">
+                        <div class="text-babyblue-700 font-bold mb-1 flex items-center gap-2 text-sm">
+                            <i class="fa-solid fa-wand-magic-sparkles text-babyblue-500"></i> Part 2: Skills
+                        </div>
+                        <p class="text-xs text-slate-600">10 items on conciseness, key extraction, terminology, and synthesis.</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-white/80 border border-babyblue-200 shadow-sm">
+                        <div class="text-babyblue-700 font-bold mb-1 flex items-center gap-2 text-sm">
+                            <i class="fa-solid fa-triangle-exclamation text-babyblue-500"></i> Part 3: Challenges
+                        </div>
+                        <p class="text-xs text-slate-600">10 items addressing technical jargon, subjective bias, and length constraints.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Respondent Information Form (No Student ID) -->
+            <div class="babyblue-card p-6 md:p-8">
+                <h2 class="text-base font-bold text-slate-800 mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-user-pen text-babyblue-500"></i>
+                    Respondent Information
+                </h2>
+                <form id="studentForm" onsubmit="startAssessment(event)" class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Full Name *</label>
+                            <input type="text" id="studentName" required placeholder="e.g. Maria Santos" class="w-full px-4 py-2.5 rounded-xl border border-babyblue-200 focus:outline-none focus:ring-2 focus:ring-babyblue-400 text-sm bg-babyblue-50/30">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Course / Program / Section *</label>
+                            <input type="text" id="studentCourse" required placeholder="e.g. BS Information Science 4-A" class="w-full px-4 py-2.5 rounded-xl border border-babyblue-200 focus:outline-none focus:ring-2 focus:ring-babyblue-400 text-sm bg-babyblue-50/30">
+                        </div>
+                    </div>
+                    
+                    <div class="pt-4 flex justify-end">
+                        <button type="submit" class="w-full md:w-auto px-8 py-3.5 bg-gradient-to-r from-babyblue-500 to-babyblue-600 text-white font-bold text-sm rounded-xl hover:opacity-95 transition shadow-lg shadow-babyblue-500/25 flex items-center justify-center gap-2">
+                            <span>Begin Assessment</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <div id="assessmentPages" class="hidden space-y-6">
+            <!-- Step Indicator Pills -->
+            <div class="flex items-center justify-between bg-white p-3 rounded-2xl border border-babyblue-100 shadow-sm text-xs font-semibold">
+                <div id="stepIndicator0" class="flex items-center gap-2 px-3.5 py-1.5 rounded-xl transition">
+                    <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold border">1</span>
+                    <span>Part 1: Knowledge</span>
+                </div>
+                <i class="fa-solid fa-chevron-right text-babyblue-200"></i>
+                <div id="stepIndicator1" class="flex items-center gap-2 px-3.5 py-1.5 rounded-xl transition">
+                    <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold border">2</span>
+                    <span>Part 2: Skills</span>
+                </div>
+                <i class="fa-solid fa-chevron-right text-babyblue-200"></i>
+                <div id="stepIndicator2" class="flex items-center gap-2 px-3.5 py-1.5 rounded-xl transition">
+                    <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold border">3</span>
+                    <span>Part 3: Challenges</span>
+                </div>
+            </div>
+
+            <!-- Part Banner -->
+            <div id="partHeaderBanner" class="babyblue-card p-6 transition-all duration-300">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                        <span id="partTag" class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">Part Indicator</span>
+                        <h2 id="partTitle" class="text-xl font-bold text-slate-800 mt-2">Part Title</h2>
+                        <p id="partDescription" class="text-xs text-slate-600 mt-1">Part Description</p>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs font-semibold text-babyblue-800 bg-babyblue-50 px-4 py-2 rounded-xl border border-babyblue-200 self-start md:self-auto">
+                        <i class="fa-solid fa-list-check text-babyblue-500"></i>
+                        <span id="completionCounter">0 / 10 Answered</span>
+                    </div>
+                </div>
+
+                <!-- 1 to 10 Question Navigation Pills -->
+                <div class="mt-6 pt-4 border-t border-babyblue-100 flex flex-wrap items-center gap-2" id="questionPillContainer">
+                    <!-- Dynamic Pills 1-10 populated via JS -->
+                </div>
+            </div>
+
+            <!-- Questions Container -->
+            <div id="questionsContainer" class="space-y-6">
+                <!-- Dynamic Questions Inserted Here -->
+            </div>
+
+            <!-- Validation Alert Banner -->
+            <div id="validationAlert" class="hidden p-4 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-xs font-semibold flex items-center gap-2 shadow-sm">
+                <i class="fa-solid fa-circle-exclamation text-amber-500 text-base"></i>
+                <span id="validationAlertText">Please answer all remaining questions before completing the evaluation.</span>
+            </div>
+
+            <!-- Part Navigation Buttons -->
+            <div class="flex items-center justify-between pt-6 border-t border-babyblue-100">
+                <button type="button" id="prevPartBtn" onclick="navigatePart(-1)" class="px-6 py-3 bg-white border border-babyblue-200 text-slate-700 font-semibold text-sm rounded-xl hover:bg-babyblue-50 transition flex items-center gap-2">
+                    <i class="fa-solid fa-chevron-left"></i> Previous Part
+                </button>
+                
+                <button type="button" id="nextPartBtn" onclick="navigatePart(1)" class="px-8 py-3.5 bg-babyblue-600 text-white font-bold text-sm rounded-xl hover:bg-babyblue-700 transition flex items-center gap-2 shadow-md shadow-babyblue-500/20">
+                    <span id="nextPartBtnText">Next Part</span>
+                    <i id="nextPartBtnIcon" class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="finalSummaryPage" class="hidden space-y-8">
+            <div class="babyblue-card p-8 text-center bg-gradient-to-b from-white via-babyblue-50/60 to-babyblue-100/40">
+                <div class="w-16 h-16 rounded-2xl bg-babyblue-100 text-babyblue-600 flex items-center justify-center text-3xl mx-auto mb-4 border border-babyblue-200 shadow-inner">
+                    <i class="fa-solid fa-award"></i>
+                </div>
+                <h1 class="text-2xl md:text-3xl font-extrabold text-slate-800 mb-2">Self Assessment Summary Report</h1>
+                <p class="text-xs md:text-sm text-slate-600 max-w-lg mx-auto">
+                    Self Assessment - Knowledge, Skills and Challenges in Abstracting
+                </p>
+
+                <!-- Respondent Details Box -->
+                <div class="mt-6 inline-flex flex-wrap items-center justify-center gap-4 bg-white border border-babyblue-200 px-6 py-3 rounded-2xl text-xs text-slate-700 shadow-sm">
+                    <div><strong>Name:</strong> <span id="summaryName">-</span></div>
+                    <div class="text-babyblue-300">|</div>
+                    <div><strong>Course/Section:</strong> <span id="summaryCourse">-</span></div>
+                    <div class="text-babyblue-300">|</div>
+                    <div><strong>Date:</strong> <span id="summaryDate">-</span></div>
+                </div>
+
+                <!-- Total Score Display -->
+                <div class="mt-6">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Total Overall Score</span>
+                    <div class="text-5xl font-black text-babyblue-900 mt-1">
+                        <span id="totalScoreText">0</span> <span class="text-2xl font-bold text-slate-400">/ 30</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Part Breakdown Container -->
+            <div id="partBreakdownContainer" class="space-y-6">
+                <!-- Populated via JS for each of the 3 parts -->
+            </div>
+
+            <!-- Overall Performance Overview -->
+            <div class="babyblue-card p-6 md:p-8">
+                <h3 class="text-base font-bold text-slate-800 mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-chart-pie text-babyblue-500"></i> Overall Competency Synthesis
+                </h3>
+                <div id="overallSynthesis" class="text-sm text-slate-700 leading-relaxed p-4 rounded-xl bg-babyblue-50/50 border border-babyblue-100">
+                    Overall performance analysis will appear here.
+                </div>
+
+                <!-- Print & Restart Controls -->
+                <div class="mt-6 flex flex-wrap items-center justify-between gap-4 no-print">
+                    <button onclick="restartAssessment()" class="px-6 py-2.5 bg-slate-100 text-slate-700 font-semibold text-xs rounded-xl hover:bg-slate-200 transition">
+                        <i class="fa-solid fa-rotate-left mr-1.5"></i> Retake Assessment
+                    </button>
+                    <button onclick="window.print()" class="px-6 py-2.5 bg-babyblue-600 text-white font-semibold text-xs rounded-xl hover:bg-babyblue-700 transition flex items-center gap-2 shadow-sm">
+                        <i class="fa-solid fa-print"></i> Print / Save Summary PDF
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-white border-t border-babyblue-100 py-6 text-center text-xs text-slate-400 no-print mt-12">
+        <div class="max-w-5xl mx-auto px-4">
+            Self Assessment - Knowledge, Skills and Challenges in Abstracting &copy; Academic Thesis Evaluation Tool
+        </div>
+    </footer>
+
+    <script>
+        /* Assessment Questions Database */
+        const assessmentData = [
+            {
+                part: 1,
+                title: "Part 1: Abstracting Knowledge",
+                tag: "Knowledge Domain",
+                tagClass: "bg-babyblue-100 text-babyblue-800 border border-babyblue-200",
+                description: "Evaluates theoretical knowledge, rules, standards, and types of academic abstracts.",
+                questions: [
+                    {
+                        id: "p1_q1",
+                        q: "1. Which type of abstract provides a concise summary of the entire document, including objectives, methodology, results, and conclusions?",
+                        options: ["Indicative Abstract", "Informative Abstract", "Critical Abstract", "Slanted Abstract"],
+                        answer: 1
+                    },
+                    {
+                        id: "p1_q2",
+                        q: "2. According to NISO Z39.14 standards, what is the primary purpose of an abstract?",
+                        options: [
+                            "To replace reading the full text entirely",
+                            "To enable readers to quickly identify the basic content of a document",
+                            "To provide a detailed critical critique of the author's work",
+                            "To index keywords without narrative structure"
+                        ],
+                        answer: 1
+                    },
+                    {
+                        id: "p1_q3",
+                        q: "3. Which type of abstract describes the content of a work without revealing specific results or quantitative findings?",
+                        options: ["Informative Abstract", "Indicative / Descriptive Abstract", "Structured Abstract", "Executive Summary"],
+                        answer: 1
+                    },
+                    {
+                        id: "p1_q4",
+                        q: "4. What is a 'Structured Abstract'?",
+                        options: [
+                            "An abstract written purely in bullet points",
+                            "An abstract organized into explicit labeled sections (e.g., Background, Methods, Results, Conclusion)",
+                            "An abstract created automatically by machine indexing",
+                            "An abstract strictly limited to 50 words"
+                        ],
+                        answer: 1
+                    },
+                    {
+                        id: "p1_q5",
+                        q: "5. In professional abstracting, what rule should be followed regarding new information?",
+                        options: [
+                            "New information not present in the main text may be introduced if relevant",
+                            "Only information explicitly present in the original document must be included",
+                            "External citations should be added to validate claims",
+                            "Personal interpretations of results are encouraged"
+                        ],
+                        answer: 1
+                    },
+                    {
+                        id: "p1_q6",
+                        q: "6. Standard length for most academic journal abstracts generally falls within which range?",
+                        options: ["50 - 100 words", "150 - 250 words", "400 - 600 words", "1,000 - 1,500 words"],
+                        answer: 1
+                    },
+                    {
+                        id: "p1_q7",
+                        q: "7. Which standard provides global guidelines for writing abstracts for publishing and documentation?",
+                        options: ["ISO 214 / NISO Z39.14", "ISO 9001", "IEEE 802.11", "MARC 21 Format"],
+                        answer: 0
+                    },
+                    {
+                        id: "p1_q8",
+                        q: "8. What is a 'Critical Abstract'?",
+                        options: [
+                            "An abstract that summarizes only negative research findings",
+                            "An abstract that evaluates and comments on the validity and value of the source document",
+                            "An abstract generated during peer review",
+                            "An abstract for humanities papers only"
+                        ],
+                        answer: 1
+                    },
+                    {
+                        id: "p1_q9",
+                        q: "9. Why are abbreviation and acronym rules strict in abstracting?",
+                        options: [
+                            "Because abstracts are stand-alone texts and readers may not see the full document",
+                            "To reduce word count artificially",
+                            "To satisfy index search engine limits",
+                            "Because acronyms are prohibited in scholarly writing"
+                        ],
+                        answer: 0
+                    },
+                    {
+                        id: "p1_q10",
+                        q: "10. In information retrieval, how do abstracts assist indexing systems?",
+                        options: [
+                            "By replacing subject headings completely",
+                            "By providing rich contextual text for full-text search indexing and database discovery",
+                            "By standardizing author names",
+                            "By calculating citation impact factors"
+                        ],
+                        answer: 1
+                    }
+                ],
+                resources: {
+                    modules: [
+                        { title: "ANSI/NISO Z39.14 Guidelines for Abstracts", url: "https://www.niso.org/publications/ansiniso-z3914-1997-r2015-guidelines-abstracts" },
+                        { title: "ERIC Guide to Abstracting & Indexing Standards", url: "https://eric.ed.gov/?download" },
+                        { title: "UNC Writing Center: Writing Abstracts Guide", url: "https://writingcenter.unc.edu/tips-and-tools/abstracts/" }
+                    ],
+                    videos: [
+                        { title: "How to Write an Abstract for a Research Paper", url: "https://www.youtube.com/watch?v=132eUQ1M9Jg" },
+                        { title: "Types of Abstracts: Informative vs Indicative", url: "https://www.youtube.com/watch?v=Yf_C_WkU3sE" }
+                    ]
+                }
+            },
+            {
+                part: 2,
+                title: "Part 2: Abstracting Skills",
+                tag: "Skills Domain",
+                tagClass: "bg-babyblue-100 text-babyblue-800 border border-babyblue-200",
+                description: "Assesses practical skills in text condensation, key extraction, synthesis, and precise terminology.",
+                questions: [
+                    {
+                        id: "p2_q1",
+                        q: "1. When extracting key findings from a lengthy scientific report, which section should you prioritize for concise quantitative outcomes?",
+                        options: ["Introduction", "Literature Review", "Results / Findings", "Appendices"],
+                        answer: 2
+                    },
+                    {
+                        id: "p2_q2",
+                        q: "2. Which technique best ensures economy of expression (conciseness) in an abstract?",
+                        options: [
+                            "Using passive voice and long prepositional phrases",
+                            "Eliminating redundant modifiers and using active voice verbs",
+                            "Deleting all methodology descriptions",
+                            "Replacing key technical terms with broad synonyms"
+                        ],
+                        answer: 1
+                    },
+                    {
+                        id: "p2_q3",
+                        q: "3. Skillful abstracting requires maintaining 'objectivity'. How is this best demonstrated?",
+                        options: [
+                            "By adding personal opinions regarding the author's conclusions",
+                            "By reporting the author's findings neutrally without editorial bias or praise",
+                            "By emphasizing only findings that agree with current literature",
+                            "By rephrasing the conclusion to sound more impressive"
+                        ],
+                        answer: 1
+                    },
+                    {
+                        id: "p2_q4",
+                        q: "4. When synthesizing a 50-page document into a 200-word informative abstract, what is the best strategy?",
+                        options: [
+                            "Copying the first sentence of every major section verbatim",
+                            "Identifying the primary research question, method, key data, and final conclusion, then drafting a coherent narrative",
+                            "Writing a detailed summary of the background literature",
+                            "Omitting the methodology to focus solely on introduction"
+                        ],
+                        answer: 1
+                    },
+                    {
+                        id: "p2_q5",
+                        q: "5. How should non-standard terminology or obscure jargon be handled when drafting an abstract?",
+                        options: [
+                            "Left unexplained to save word space",
+                            "Defined clearly upon first mention or replaced with standard domain terms",
+                            "Replaced entirely with colloquial slang",
+                            "Moved into a footnote"
+                        ],
+                        answer: 1
+                    },
+                    {
+                        id: "p2_q6",
+                        q: "6. Which sentence represents the most effective, concise abstract writing skill?",
+                        options: [
+                            "It was found after careful investigation by the research team that the temperature increased significantly.",
+                            "The temperature increased by 15°C (p < 0.05).",
+                            "In this paper, we would like to discuss how temperature had an upward movement.",
+                            "An increase in temperature was something that occurred during our testing process."
+                        ],
+                        answer: 1
+                    },
+                    {
+                        id: "p2_q7",
+                        q: "7. When writing an abstract, citations and bibliographic references to other works should generally be:",
+                        options: [
+                            "Included in full detail at the bottom",
+                            "Avoided unless absolutely necessary to understand the core premise",
+                            "Inserted after every background statement",
+                            "Formatted according to APA style in footnotes"
+                        ],
+                        answer: 1
+                    },
+                    {
+                        id: "p2_q8",
+                        q: "8. What skill is critical when abstracting interdisciplinary research documents?",
+                        options: [
+                            "Ability to select cross-domain standardized terminology understood by broader audiences",
+                            "Ability to translate text into foreign languages",
+                            "Ability to expand the word count beyond 500 words",
+                            "Ability to ignore complex statistical parameters"
+                        ],
+                        answer: 0
+                    },
+                    {
+                        id: "p2_q9",
+                        q: "9. To ensure logical flow and coherence within a single-paragraph abstract, an abstractor should:",
+                        options: [
+                            "Use clear transitional markers (e.g., 'To address this', 'Results indicate', 'Therefore')",
+                            "Separate every sentence into a new bullet point",
+                            "Arrange sentences strictly in alphabetical order",
+                            "Avoid linking verbs between methodology and results"
+                        ],
+                        answer: 0
+                    },
+                    {
+                        id: "p2_q10",
+                        q: "10. Self-editing an abstract for conciseness involves:",
+                        options: [
+                            "Pruning wordy phrases (e.g., changing 'due to the fact that' to 'because')",
+                            "Adding decorative adjectives to make the research sound important",
+                            "Increasing sentence length to sound more scholarly",
+                            "Removing quantitative values in favor of qualitative terms"
+                        ],
+                        answer: 0
+                    }
+                ],
+                resources: {
+                    modules: [
+                        { title: "Purdue OWL: Abstract Writing & Key Extraction Skills", url: "https://owl.purdue.edu/owl/general_writing/academic_writing/abstracts/index.html" },
+                        { title: "Nature Education: Writing Effective Research Abstracts", url: "https://www.nature.com/scitable/topicpage/writing-a-scientific-paper-14281705/" }
+                    ],
+                    videos: [
+                        { title: "Abstract Writing Masterclass: Condensing Complex Ideas", url: "https://www.youtube.com/watch?v=VP3px1B-pS0" },
+                        { title: "Editing for Conciseness in Academic Writing", url: "https://www.youtube.com/watch?v=cG1xL4jS_7U" }
+                    ]
+                }
+            },
+            {
+                part: 3,
+                title: "Part 3: Challenges in Abstracting",
+                tag: "Challenges Domain",
+                tagClass: "bg-babyblue-100 text-babyblue-800 border border-babyblue-200",
+                description: "Identifies challenges faced in technical jargon, subjective bias, strict length limits, and complex texts.",
+                questions: [
+                    {
+                        id: "p3_q1",
+                        q: "1. What is a primary challenge when abstracting highly dense, jargon-laden technical literature?",
+                        options: [
+                            "Accurately translating technical jargon without losing precise semantic meaning",
+                            "Finding enough words to fulfill the minimum word requirement",
+                            "Selecting an appealing font type",
+                            "Translating equations into simple arithmetic"
+                        ],
+                        answer: 0
+                    },
+                    {
+                        id: "p3_q2",
+                        q: "2. Abstractors often struggle with 'subjective bias'. How does this challenge manifest?",
+                        options: [
+                            "Unconsciously emphasizing aspects of the paper that align with personal interest while omitting essential findings",
+                            "Writing too quickly under deadline pressure",
+                            "Using spellcheck software excessively",
+                            "Failing to record the author's institutional affiliation"
+                        ],
+                        answer: 0
+                    },
+                    {
+                        id: "p3_q3",
+                        q: "3. When encountering an original paper with ambiguous or poorly reported methodology, what challenge arises?",
+                        options: [
+                            "Difficulty in summarizing methods accurately without making unverified assumptions",
+                            "Automatic disqualification of the abstract by database indexers",
+                            "Inability to count word length",
+                            "Forced insertion of personal corrections into the abstract text"
+                        ],
+                        answer: 0
+                    },
+                    {
+                        id: "p3_q4",
+                        q: "4. What challenge is associated with strict 150-word publisher constraints?",
+                        options: [
+                            "Risk of cutting vital methodological details or statistical bounds to meet word limits",
+                            "Inability to include author email address",
+                            "Requirement to print on physical cardstock",
+                            "Inability to publish in digital indexing databases"
+                        ],
+                        answer: 0
+                    },
+                    {
+                        id: "p3_q5",
+                        q: "5. Abstracting non-empirical or theoretical philosophy papers poses what unique challenge compared to empirical papers?",
+                        options: [
+                            "Absence of standardized sections like 'Methods' or 'Results', making key argument extraction harder",
+                            "Lack of vocabulary words",
+                            "Too many charts and statistical graphs",
+                            "Strict rules against using sentences"
+                        ],
+                        answer: 0
+                    },
+                    {
+                        id: "p3_q6",
+                        q: "6. How can an abstractor overcome the challenge of misrepresenting author intent?",
+                        options: [
+                            "By thoroughly analyzing conclusions against presented data before writing",
+                            "By asking an automated translator to rephrase the text",
+                            "By omitting the conclusion section entirely",
+                            "By substituting the author's claims with general textbook definitions"
+                        ],
+                        answer: 0
+                    },
+                    {
+                        id: "p3_q7",
+                        q: "7. Why is 'information overload' a major challenge during document synthesis?",
+                        options: [
+                            "Extensive data makes it difficult to discern primary outcomes from secondary background details",
+                            "Reading long texts causes database connection timeouts",
+                            "Search engines index too many synonyms",
+                            "Authors provide too many references in the bibliography"
+                        ],
+                        answer: 0
+                    },
+                    {
+                        id: "p3_q8",
+                        q: "8. What challenge occurs when abstracting a study with negative or inconclusive research results?",
+                        options: [
+                            "Tendency to downplay or obscure negative findings rather than stating them clearly",
+                            "Inability to find suitable verbs",
+                            "Exceeding publisher character constraints",
+                            "Rejection by indexers due to lack of positive statistical significance"
+                        ],
+                        answer: 0
+                    },
+                    {
+                        id: "p3_q9",
+                        q: "9. Terminology inconsistency (synonymy) across authors creates what abstracting obstacle?",
+                        options: [
+                            "Difficulty in selecting consistent indexable keywords for database retrieval",
+                            "Inability to organize sentences into paragraphs",
+                            "Increasing print publication costs",
+                            "Forcing the abstract to be written in bullet points"
+                        ],
+                        answer: 0
+                    },
+                    {
+                        id: "p3_q10",
+                        q: "10. In automated or machine-assisted abstracting, what remains a major human cognitive challenge?",
+                        options: [
+                            "Evaluating contextual nuance, implicit arguments, and subtle research implications",
+                            "Typing speed and keyboard accuracy",
+                            "Storing PDF files in cloud drives",
+                            "Counting punctuation marks accurately"
+                        ],
+                        answer: 0
+                    }
+                ],
+                resources: {
+                    modules: [
+                        { title: "Overcoming Common Pitfalls in Abstract Writing", url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3132866/" },
+                        { title: "ALA / Core Resources on Indexing & Abstracting Challenges", url: "https://www.ala.org/core/" }
+                    ],
+                    videos: [
+                        { title: "Common Mistakes in Writing Research Abstracts", url: "https://www.youtube.com/watch?v=42S-I11L4G0" },
+                        { title: "How to Avoid Bias and Maintain Objectivity in Scientific Summaries", url: "https://www.youtube.com/watch?v=uU30A-H9o98" }
+                    ]
+                }
+            }
+        ];
+
+        let state = {
+            student: { name: '', course: '' },
+            currentPartIndex: 0,
+            answers: { 0: {}, 1: {}, 2: {} },
+            scores: { 0: null, 1: null, 2: null }
+        };
+
+        function startAssessment(e) {
+            e.preventDefault();
+            state.student.name = document.getElementById('studentName').value.trim();
+            state.student.course = document.getElementById('studentCourse').value.trim();
+
+            document.getElementById('badgeName').innerText = state.student.name;
+            document.getElementById('badgeCourse').innerText = state.student.course;
+            document.getElementById('studentInfoBadge').classList.remove('hidden');
+            document.getElementById('progressBarContainer').classList.remove('hidden');
+
+            document.getElementById('page-0').classList.add('hidden');
+            document.getElementById('assessmentPages').classList.remove('hidden');
+
+            loadPart(0);
+        }
+
+        function updateStepIndicators() {
+            for (let i = 0; i < 3; i++) {
+                const el = document.getElementById(`stepIndicator${i}`);
+                if (i === state.currentPartIndex) {
+                    el.className = "flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-babyblue-600 text-white font-bold transition";
+                } else if (i < state.currentPartIndex) {
+                    el.className = "flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-babyblue-100 text-babyblue-800 font-semibold transition";
+                } else {
+                    el.className = "flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-50 text-slate-400 font-medium transition";
+                }
+            }
+        }
+
+        function updateProgressBar() {
+            let totalAnswered = Object.keys(state.answers[0]).length + 
+                                Object.keys(state.answers[1]).length + 
+                                Object.keys(state.answers[2]).length;
+            let progress = (totalAnswered / 30) * 100;
+            document.getElementById('progressBar').style.width = `${Math.max(progress, 5)}%`;
+        }
+
+        function loadPart(partIndex) {
+            state.currentPartIndex = partIndex;
+            updateStepIndicators();
+            updateProgressBar();
+            document.getElementById('validationAlert').classList.add('hidden');
+
+            const partData = assessmentData[partIndex];
+
+            // Render Header
+            const tagEl = document.getElementById('partTag');
+            tagEl.innerText = partData.tag;
+            tagEl.className = `px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide ${partData.tagClass}`;
+
+            document.getElementById('partTitle').innerText = partData.title;
+            document.getElementById('partDescription').innerText = partData.description;
+
+            // Render Navigation Pills
+            renderQuestionPills(partIndex);
+
+            // Render Questions
+            const qContainer = document.getElementById('questionsContainer');
+            qContainer.innerHTML = '';
+
+            partData.questions.forEach((qObj, index) => {
+                const card = document.createElement('div');
+                const selectedAnswer = state.answers[partIndex][index];
+                const isAnswered = selectedAnswer !== undefined;
+
+                card.className = `babyblue-card p-6 border-l-4 transition-all ${isAnswered ? 'border-babyblue-500' : 'border-slate-200'}`;
+                card.id = `q_card_${index}`;
+
+                let optionsHtml = qObj.options.map((opt, optIdx) => {
+                    const isChecked = selectedAnswer === optIdx ? 'checked' : '';
+                    return `
+                        <div class="relative">
+                            <input type="radio" id="${qObj.id}_opt${optIdx}" name="${qObj.id}" value="${optIdx}" ${isChecked} 
+                                   onchange="recordAnswer(${partIndex}, ${index}, ${optIdx})" 
+                                   class="custom-radio sr-only">
+                            <label for="${qObj.id}_opt${optIdx}" 
+                                   class="block w-full p-3.5 px-4 rounded-xl border border-slate-200 hover:border-babyblue-300 bg-white cursor-pointer text-xs md:text-sm text-slate-700 transition">
+                                <span class="font-semibold text-babyblue-400 mr-2">${String.fromCharCode(65 + optIdx)}.</span> ${opt}
+                            </label>
+                        </div>
+                    `;
+                }).join('');
+
+                card.innerHTML = `
+                    <p class="font-bold text-sm md:text-base text-slate-800 mb-4">${qObj.q}</p>
+                    <div class="space-y-2.5">${optionsHtml}</div>
+                `;
+                qContainer.appendChild(card);
+            });
+
+            // Update Counter
+            updateCompletionCounter(partIndex);
+
+            // Prev Button state
+            const prevBtn = document.getElementById('prevPartBtn');
+            if (partIndex === 0) {
+                prevBtn.classList.add('invisible');
+            } else {
+                prevBtn.classList.remove('invisible');
+            }
+
+            // Next / Finish Button text
+            const nextBtnText = document.getElementById('nextPartBtnText');
+            const nextBtnIcon = document.getElementById('nextPartBtnIcon');
+            if (partIndex === 2) {
+                nextBtnText.innerText = "Check & Submit All Results";
+                nextBtnIcon.className = "fa-solid fa-check-double";
+            } else {
+                nextBtnText.innerText = "Next Part";
+                nextBtnIcon.className = "fa-solid fa-arrow-right";
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderQuestionPills(partIndex) {
+            const container = document.getElementById('questionPillContainer');
+            container.innerHTML = '<span class="text-xs font-semibold text-slate-400 mr-2">Jump to:</span>';
+
+            for (let i = 0; i < 10; i++) {
+                const isAnswered = state.answers[partIndex][i] !== undefined;
+                const pill = document.createElement('button');
+                pill.type = 'button';
+                pill.className = `w-7 h-7 rounded-lg text-xs font-bold transition flex items-center justify-center ${
+                    isAnswered 
+                    ? 'bg-babyblue-600 text-white shadow-sm' 
+                    : 'bg-babyblue-50 text-babyblue-600 hover:bg-babyblue-100'
+                }`;
+                pill.innerText = i + 1;
+                pill.onclick = () => {
+                    document.getElementById(`q_card_${i}`).scrollIntoView({ behavior: 'smooth', block: 'center' });
+                };
+                container.appendChild(pill);
+            }
+        }
+
+        function recordAnswer(partIndex, questionIndex, optionIndex) {
+            state.answers[partIndex][questionIndex] = optionIndex;
+            updateCompletionCounter(partIndex);
+            renderQuestionPills(partIndex);
+            updateProgressBar();
+
+            const card = document.getElementById(`q_card_${questionIndex}`);
+            if (card) {
+                card.classList.remove('border-slate-200');
+                card.classList.add('border-babyblue-500');
+            }
+            document.getElementById('validationAlert').classList.add('hidden');
+        }
+
+        function updateCompletionCounter(partIndex) {
+            const count = Object.keys(state.answers[partIndex]).length;
+            document.getElementById('completionCounter').innerText = `${count} / 10 Answered`;
+        }
+
+        function checkPartCompletion(partIdx) {
+            return Object.keys(state.answers[partIdx]).length === 10;
+        }
+
+        function navigatePart(direction) {
+            const nextIdx = state.currentPartIndex + direction;
+
+            if (direction === -1) {
+                loadPart(nextIdx);
+                return;
+            }
+
+            if (!checkPartCompletion(state.currentPartIndex)) {
+                const missing = 10 - Object.keys(state.answers[state.currentPartIndex]).length;
+                const alertEl = document.getElementById('validationAlert');
+                document.getElementById('validationAlertText').innerText = `Please answer all questions in Part ${state.currentPartIndex + 1} before proceeding (${missing} item(s) remaining).`;
+                alertEl.classList.remove('hidden');
+                return;
+            }
+
+            if (nextIdx < 3) {
+                loadPart(nextIdx);
+            } else {
+                validateAndSubmitAll();
+            }
+        }
+
+        function validateAndSubmitAll() {
+            let uncompletedParts = [];
+            for (let i = 0; i < 3; i++) {
+                if (!checkPartCompletion(i)) {
+                    uncompletedParts.push(i + 1);
+                }
+            }
+
+            if (uncompletedParts.length > 0) {
+                const alertEl = document.getElementById('validationAlert');
+                document.getElementById('validationAlertText').innerText = `You have unanswered questions in Part(s) ${uncompletedParts.join(', ')}. Please complete all 30 questions before viewing results.`;
+                alertEl.classList.remove('hidden');
+
+                loadPart(uncompletedParts[0] - 1);
+                return;
+            }
+
+            // Calculate Scores
+            for (let p = 0; p < 3; p++) {
+                let score = 0;
+                assessmentData[p].questions.forEach((qObj, idx) => {
+                    if (state.answers[p][idx] === qObj.answer) {
+                        score++;
+                    }
+                });
+                state.scores[p] = score;
+            }
+
+            showFinalResults();
+        }
+
+        function showFinalResults() {
+            document.getElementById('assessmentPages').classList.add('hidden');
+            document.getElementById('finalSummaryPage').classList.remove('hidden');
+            document.getElementById('progressBar').style.width = '100%';
+
+            // Populate Summary Header
+            document.getElementById('summaryName').innerText = state.student.name || "N/A";
+            document.getElementById('summaryCourse').innerText = state.student.course || "N/A";
+            document.getElementById('summaryDate').innerText = new Date().toLocaleDateString();
+
+            const totalScore = state.scores[0] + state.scores[1] + state.scores[2];
+            document.getElementById('totalScoreText').innerText = totalScore;
+
+            // Render Part Breakdown Cards
+            const breakdownContainer = document.getElementById('partBreakdownContainer');
+            breakdownContainer.innerHTML = '';
+
+            for (let i = 0; i < 3; i++) {
+                const score = state.scores[i];
+                const partData = assessmentData[i];
+                const isLow = score <= 5;
+
+                const partCard = document.createElement('div');
+                partCard.className = `babyblue-card p-6 md:p-8 border-l-4 ${isLow ? 'border-amber-400' : 'border-emerald-400'}`;
+
+                let remedialSectionHtml = '';
+
+                if (isLow) {
+                    remedialSectionHtml = `
+                        <div class="mt-6 pt-6 border-t border-babyblue-100 bg-babyblue-50/70 p-4 md:p-6 rounded-2xl border border-babyblue-200">
+                            <div class="flex items-center gap-2 text-babyblue-900 font-bold text-sm mb-2">
+                                <i class="fa-solid fa-graduation-cap text-babyblue-600"></i>
+                                Recommended Learning Resources for ${partData.title} (Score $\\le$ 5)
+                            </div>
+                            <p class="text-xs text-slate-600 mb-4">Your score is 5 or below in this part. Please review the following credible links and video tutorials to strengthen your abstracting knowledge and skills:</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                                <div class="bg-white p-4 rounded-xl border border-babyblue-200 shadow-sm">
+                                    <h5 class="font-bold text-babyblue-800 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
+                                        <i class="fa-solid fa-book-bookmark text-babyblue-500"></i> Modules & Standards
+                                    </h5>
+                                    <ul class="space-y-2">
+                                        ${partData.resources.modules.map(m => `
+                                            <li>
+                                                <a href="${m.url}" target="_blank" rel="noopener noreferrer" class="text-babyblue-600 hover:text-babyblue-800 hover:underline flex items-center gap-1.5 font-medium">
+                                                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> ${m.title}
+                                                </a>
+                                            </li>
+                                        `).join('')}
+                                    </ul>
+                                </div>
+
+                                <div class="bg-white p-4 rounded-xl border border-babyblue-200 shadow-sm">
+                                    <h5 class="font-bold text-babyblue-800 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
+                                        <i class="fa-solid fa-circle-play text-red-500"></i> Video Tutorials
+                                    </h5>
+                                    <ul class="space-y-2">
+                                        ${partData.resources.videos.map(v => `
+                                            <li>
+                                                <a href="${v.url}" target="_blank" rel="noopener noreferrer" class="text-red-600 hover:text-red-800 hover:underline flex items-center gap-1.5 font-medium">
+                                                    <i class="fa-solid fa-play text-[10px]"></i> ${v.title}
+                                                </a>
+                                            </li>
+                                        `).join('')}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                partCard.innerHTML = `
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-xl ${isLow ? 'bg-amber-100 text-amber-800 border border-amber-200' : 'bg-emerald-100 text-emerald-800 border border-emerald-200'} flex items-center justify-center text-xl font-bold">
+                                <i class="${isLow ? 'fa-solid fa-triangle-exclamation' : 'fa-solid fa-circle-check'}"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-bold ${partData.tagClass} px-2.5 py-0.5 rounded-full">${partData.tag}</span>
+                                <h3 class="text-lg font-bold text-slate-800 mt-1">${partData.title}</h3>
+                            </div>
+                        </div>
+
+                        <div class="text-right self-start md:self-auto">
+                            <div class="text-2xl font-black text-slate-800">${score} / 10</div>
+                            <span class="text-xs font-semibold ${isLow ? 'text-amber-700' : 'text-emerald-700'}">
+                                ${isLow ? 'Low Score (Action Recommended)' : 'Proficient Competency'}
+                            </span>
+                        </div>
+                    </div>
+
+                    ${remedialSectionHtml}
+                `;
+
+                breakdownContainer.appendChild(partCard);
+            }
+
+            // Synthesis Summary
+            const overallSynthesis = document.getElementById('overallSynthesis');
+            let evaluationMessage = "";
+
+            if (totalScore >= 24) {
+                evaluationMessage = `<strong>Exemplary Competency (${totalScore}/30):</strong> You have demonstrated a strong mastery across Abstracting Knowledge, Abstracting Skills, and managing Abstracting Challenges. You possess solid readiness for thesis writing and abstract drafting.`;
+            } else if (totalScore >= 16) {
+                evaluationMessage = `<strong>Moderate Competency (${totalScore}/30):</strong> You demonstrated a satisfactory understanding. Please review the specific module links and video tutorials provided for any part where your score was 5 or below.`;
+            } else {
+                evaluationMessage = `<strong>Needs Development (${totalScore}/30):</strong> Your assessment score highlights key areas for improvement. Please consult the recommended NISO standards and instructional videos provided above to enhance your abstracting knowledge and skills.`;
+            }
+
+            overallSynthesis.innerHTML = evaluationMessage;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function restartAssessment() {
+            if (confirm("Are you sure you want to restart the self-assessment? Current progress will be cleared.")) {
+                state.answers = { 0: {}, 1: {}, 2: {} };
+                state.scores = { 0: null, 1: null, 2: null };
+                
+                document.getElementById('finalSummaryPage').classList.add('hidden');
+                document.getElementById('studentInfoBadge').classList.add('hidden');
+                document.getElementById('progressBarContainer').classList.add('hidden');
+                document.getElementById('page-0').classList.remove('hidden');
+                
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
